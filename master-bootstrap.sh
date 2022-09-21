@@ -26,5 +26,3 @@ curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | ba
 mkdir /home/vagrant/src
 echo "I am edge $HOSTNAME" > /home/vagrant/src/index.html
 
-# Create Kubernetes Cluster
-k3d cluster create mycluster --agents 1
