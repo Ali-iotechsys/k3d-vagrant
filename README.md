@@ -2,7 +2,6 @@
 
 - `$ vagrant up`
 - `$ vagrant ssh master`
-- `vagrant@master:~$ k3d cluster create mycluster --agents 3`
 - `vagrant@master:~$ kubectl get nodes`
 - `vagrant@master:~$ kubectl cluster-info`
 - `vagrant@master:~$ docker ps	# list all running k3d containers`
