@@ -2,7 +2,7 @@
 
 - `$ vagrant up`
 - `$ vagrant ssh master`
-- `$ k3d cluster create mycluster --agents 1  # Create Kubernetes Cluster`
+- `$ k3d cluster create mycluster --agents 2 --volume ${PWD}/src:/src@agent:0,1  # Create Kubernetes Cluster, and mount volume into nodes`
 - `vagrant@master:~$ kubectl get nodes`
 - `vagrant@master:~$ kubectl cluster-info`
 - `vagrant@master:~$ docker ps	# list all running k3d containers`
