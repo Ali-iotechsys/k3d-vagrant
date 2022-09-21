@@ -22,7 +22,14 @@ install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 # Install Helm
 curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
-# Required to run a simple webserver for App Definition
+# Install kompose (Optional)
+curl -L https://github.com/kubernetes/kompose/releases/download/v1.18.0/kompose-linux-amd64 -o kompose
+install -o root -g root -m 0755 kompose /usr/local/bin/kompose
+
+# Required to run a simple webserver (Optional)
 mkdir /home/vagrant/src
 echo "I am edge $HOSTNAME" > /home/vagrant/src/index.html
+
+# Clean up
+rm -f kubectl kompose
 
