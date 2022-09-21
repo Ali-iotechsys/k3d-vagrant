@@ -21,3 +21,10 @@ install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 # Install Helm
 curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+# Required to run a simple webserver for App Definition
+mkdir /home/vagrant/src
+echo "I am edge $HOSTNAME" > /home/vagrant/src/index.html
+
+# Create Kubernetes Cluster
+k3d cluster create mycluster --agents 1
