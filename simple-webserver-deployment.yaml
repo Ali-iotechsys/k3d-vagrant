@@ -14,8 +14,18 @@ spec:
       labels:
         app: simple-webserver
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: k3d-mycluster-server-0
+      volumes:
+        - name: myhostvolume
+          hostPath:
+            path: /src
+            type: Directory    
       containers:
       - name: simple-webserver
         image: nginx
         ports:
         - containerPort: 80
+        volumeMounts:
+         - name: myhostvolume
+           mountPath: /usr/share/nginx/html       
