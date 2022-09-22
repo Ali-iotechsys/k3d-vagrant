@@ -10,9 +10,9 @@
 - `vagrant@master:~$ kubectl create -f /vagrant/simple-webserver-service.yaml`
 - `vagrant@master:~$ kubectl get pod -o wide`
 - `vagrant@master:~$ kubectl get deployment`
-- `vagrant@master:~$ kubectl get service  # note <service-assigned-port>`
-- `vagrant@master:~$ kubectl get node -o wide  # note <node-ip-address>`
+- `vagrant@master:~$ kubectl get node -o wide  # note <node-ip-address>, e.g: 172.18.0.2`
+- `vagrant@master:~$ kubectl get service  # note <service-assigned-port>, e.g: 30822`
+- `vagrant@master:~$ curl http://<node-ip-address>:<service-assigned-port>`
 - `vagrant@master:~$ docker exec k3d-mycluster-server-0 crictl ps`
 - `vagrant@master:~$ docker exec k3d-mycluster-server-0 crictl images`
-- `vagrant@master:~$ curl http://<node-ip-address>:<service-assigned-port>`
 
