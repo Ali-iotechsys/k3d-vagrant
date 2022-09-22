@@ -2,10 +2,17 @@
 
 - `$ vagrant up`
 - `$ vagrant ssh master`
-- `$ k3d cluster create mycluster --agents 2 --volume ${PWD}/src:/src@agent:0,1  # Create Kubernetes Cluster, and mount volume into nodes`
+- `$ k3d cluster create mycluster --volume ${PWD}/src:/src@server:0`
 - `vagrant@master:~$ kubectl get nodes`
 - `vagrant@master:~$ kubectl cluster-info`
 - `vagrant@master:~$ docker ps	# list all running k3d containers`
-- `vagrant@master:~$ docker exec k3d-mycluster-server-0 /bin/ps | grep "k3s server"`
-- `vagrant@master:~$ docker exec k3d-mycluster-agent-0 /bin/ps | grep "k3s agent"`
+- `vagrant@master:~$ kubectl create -f /vagrant/simple-webserver-deployment.yaml`
+- `vagrant@master:~$ kubectl create -f /vagrant/simple-webserver-service.yaml`
+- `vagrant@master:~$ kubectl get pod -o wide`
+- `vagrant@master:~$ kubectl get deployment`
+- `vagrant@master:~$ kubectl get service`
+- `vagrant@master:~$ kubectl get node -o wide`
+- `vagrant@master:~$ docker exec k3d-mycluster-server-0 crictl ps`
+- `vagrant@master:~$ docker exec k3d-mycluster-server-0 crictl images`
+- `vagrant@master:~$ curl http://<node-ip-address>:<service-assigned-port>`
 
